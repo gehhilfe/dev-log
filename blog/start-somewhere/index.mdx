@@ -1,0 +1,40 @@
+---
+title: "Sometimes You Just Need to Start Somewhere"
+date: "2021-01-15"
+---
+I always wanted to start experimenting with static page generators. 
+Therefore, I started making this blog with [Gatsby](https://www.gatsbyjs.com/) and also I have already some experience with [React](https://reactjs.org/). 
+Probably you won't know me personally, but I am usually more of a backend developer. This means, I really don't like moving pixels around and handling browser support or other frontend quirks.
+
+
+## But hold on where did I start?
+
+Like every other person on google with a search for static page generators 
+and landed on [better.dev - Top 10 Static Site Generators](https://www.better.dev/top-static-site-generators). 
+
+According to **better.dev** [gatsby](https://www.gatsbyjs.com/) is on the first place. They are also providing 
+valid reasons for that conclusion. 
+
+ - Amazing Documentation
+ - React and GraphQL
+ - Ecosystem of plugins
+
+From my side I can confirm that the [documentation](https://www.gatsbyjs.com/docs/) and 
+the [tutorial (Learn how Gatsby work)](https://www.gatsbyjs.com/docs/tutorial/) is well written and easy to follow.
+Every section of the tutorial ends with important remarks and questions to recap the learned knowledge. When you fully 
+follow it, you end with a nearly fully featured static page blog.
+
+This resulting blog does not need much code, because Gatsby uses conventions to reduce code and configuration. 
+For example adding a new page only needs a new react component inside `src/pages`. You don't need to configure a routing system, 
+because by convention the resulting route is just the file name.
+
+In my opinion these kinds of convention can are a double edge sword, because without good documentation they are sometimes hard to understand.
+
+## What did I achieve in my first day working with Gatsby?
+
+ - Rendering pages from *.mdx 
+ - Importing images including preloading
+ - Integrating react-bootstrap and design a basic layout
+ - Added static pages for impress, privacy
+ - Building + Deploying to AWS S3 + CloudFront 
+ - Buying a .dev domain from google and moving it to AWS Route53
