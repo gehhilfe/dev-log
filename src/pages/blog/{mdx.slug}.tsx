@@ -43,12 +43,9 @@ export const query = graphql`
         hero_image_alt
         hero_image_credit_link
         hero_image_credit_text
-        hero_image_dark
         hero_image {
           childImageSharp {
-            gatsbyImageData(
-              placeholder: BLURRED
-              )
+            gatsbyImageData(height: 250, placeholder: BLURRED, outputPixelDensities: 2)
           }
         }
       }
