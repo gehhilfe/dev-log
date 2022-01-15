@@ -1,9 +1,9 @@
 module.exports = {
-    siteMetadata: {
-      title: `DevLog`,
-        siteUrl: `https://www.yourdomain.tld`,
-    },
-    plugins: [
+  siteMetadata: {
+    title: `Gehhilfe Dev-Log`,
+    siteUrl: `https://www.yourdomain.tld`,
+  },
+  plugins: [
 
-    ]
+  ]
 }
