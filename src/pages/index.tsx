@@ -1,19 +1,45 @@
-import { StaticImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
 import React from "react"
-import { Col, Container, Row } from "react-bootstrap"
+import { Helmet } from "react-helmet"
+import BlogEntry from "../components/blog/blog-entry"
 import Layout from "../components/layout"
-import Navigation from "../components/navigation"
 
-const IndexPage = () => {
+const IndexPage = ({data}) => {
     return (
         <Layout>
-            <main>
-                <title>Home Page</title>
-                <h1>Welcome to my Gatsby site!</h1>
-                <p>I'm making this by following the Gatsby Tutorial.</p>
-            </main>
+            <Helmet>
+                <title>Gehhilfe DevLog</title>
+            </Helmet>
+            {data.allMdx.nodes.map(it => (
+                <BlogEntry content={it} />
+            ))}
         </Layout>
     )
 }
+
+export const query = graphql`
+  {
+    allMdx(limit: 5, sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {type: {eq: "blog"}}}) {
+      nodes {
+        frontmatter {
+          date(formatString: "YYYY/MM/DD")
+          title
+          hero_image_alt
+          hero_image_credit_link
+          hero_image_credit_text
+          hero_image {
+          childImageSharp {
+              gatsbyImageData(height: 250, placeholder: BLURRED, outputPixelDensities: 2)
+          }
+        }
+        }
+        id
+        slug
+        body
+        excerpt(truncate: false, pruneLength: 300)
+      }
+    }
+  }
+`
 
 export default IndexPage

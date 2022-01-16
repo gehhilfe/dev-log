@@ -1,20 +1,27 @@
 import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
+import { Helmet } from "react-helmet";
 import Layout from "../components/layout";
 
 const BlogPage = ({ data }) => {
-    return (
-        <Layout>
-            <p>Blogs</p>
-                {data.allMdx.nodes.map(it => (
-                    <article key={it.id}>
-                        <h2><Link to={`/blog/${it.slug}`}>{it.frontmatter.title}</Link></h2>
-                        <p>Posted: {it.frontmatter.date}</p>
-                    </article>
-                ))}
-        </Layout>
-    )
+  return (
+    <Layout>
+      <Helmet>
+        <title>Gehhilfe DevLog</title>
+      </Helmet>
+      <p>Blogs</p>
+      {data.allMdx.nodes.map(it => (
+        <article key={it.id}>
+          <h2><Link to={`/blog/${it.slug}`}>{it.frontmatter.title}</Link></h2>
+          <p>Posted: {it.frontmatter.date}</p>
+          <p>
+            {it.excerpt}
+          </p>
+        </article>
+      ))}
+    </Layout>
+  )
 }
 
 export const query = graphql`
@@ -26,8 +33,8 @@ export const query = graphql`
           title
         }
         id
-        body
         slug
+        excerpt(truncate: false, pruneLength: 300)
       }
     }
   }
