@@ -1,6 +1,6 @@
 body {
     font-family: 'source sans pro';
-    font-size: 1.2em;
+    font-size: 1.1em;
     background-color: rgb(255, 255, 255);
     color: rgb(33, 33, 33);
 }
@@ -43,8 +43,8 @@ a:hover {
 }
 
 .content {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 65px;
+    padding-bottom: 1.5rem;
 }
 
 .attribution a {
@@ -61,6 +61,10 @@ a:hover {
     color: rgb(87%, 87%, 87%, 0.5);
 }
 
+.social a {
+    color: #d63384;
+}
+
 @media (min-width: 1200px) {
     .container{
         max-width: 970px;
@@ -71,6 +75,10 @@ a:hover {
     padding: 1.5rem;
 }
 
+.about-me-card {
+    margin-bottom: 1.5rem;
+}
+
 @media (min-width: 768px) {
     .footer-left {
         float: right !important;
@@ -79,4 +87,31 @@ a:hover {
     .footer, .nav  {
         padding: 0;
     }
+    .about-me-card {
+        float: right !important;
+        width: 25rem;
+        margin-left: 1.5rem;
+    }
+}
+
+.mdx-content ul {
+    list-style: none;
+}
+
+.mdx-content li:before { 
+    content:''; 
+    background-color: rgba(215, 51, 78, 0.8);
+    mask-image:url('../images/code-solid.svg'); 
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 1em;
+    padding-left: 2em; 
+}
+
+.mdx-content li  li:before {
+    background-color: rgba(215, 51, 78, 0.8);
+}
+
+.mdx-content li  li {
+    font-size: 0.9em;
 }

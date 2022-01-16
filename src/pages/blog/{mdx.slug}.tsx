@@ -27,9 +27,11 @@ const BlogPost = ({ data }) => {
         </div>
       }
       {image == null && <div className="dropdown-divider"></div>}
-      <MDXRenderer>
-        {data.mdx.body}
-      </MDXRenderer>
+      <div className="mdx-content">
+        <MDXRenderer>
+          {data.mdx.body}
+        </MDXRenderer>
+      </div>
     </Layout>
   )
 }
