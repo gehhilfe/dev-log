@@ -38,7 +38,7 @@ const BlogPost = ({ data }) => {
 
 export const query = graphql`
   query ($id: String) {
-    mdx(id: {eq: $id}) {
+    mdx(id: {eq: $id}, fileAbsolutePath: {regex: "/.*blog\/.*/"}) {
       frontmatter {
         title
         date(formatString: "MMMM D, YYYY")
