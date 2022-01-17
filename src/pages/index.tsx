@@ -29,7 +29,7 @@ export const query = graphql`
           hero_image_credit_text
           hero_image {
           childImageSharp {
-              gatsbyImageData(height: 250, placeholder: BLURRED, outputPixelDensities: 2)
+              gatsbyImageData(width: 1000, placeholder: BLURRED, outputPixelDensities: 2)
           }
         }
         }
