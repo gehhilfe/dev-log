@@ -113,16 +113,10 @@ a:hover {
 
 .mdx-content li:before { 
     content:''; 
-    background-color: rgba(215, 51, 78, 0.8);
-    mask-image:url('../images/code-solid.svg'); 
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: 1em;
+    background-image:url('../images/code-solid.svg');
+    background-repeat: no-repeat;
+    background-position: center;
     padding-left: 2em; 
-}
-
-.mdx-content li  li:before {
-    background-color: rgba(215, 51, 78, 0.8);
 }
 
 .mdx-content li  li {
