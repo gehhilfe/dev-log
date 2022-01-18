@@ -47,6 +47,19 @@ a:hover {
     padding-bottom: 1.5rem;
 }
 
+.content blockquote {
+    padding-left: 1em;
+    border-left: rgb(33, 33, 33, 0.5);
+    border-left-width: 0.5em;
+    border-left-style: solid;
+    font-style: italic;
+    color: rgb(13%, 13%, 13%, 0.6);
+}
+
+.blog-entry {
+    margin-bottom: 5em;
+}
+
 .attribution a {
     text-decoration: none;
     color: rgb(33, 33, 33, 0.5);

@@ -21,8 +21,8 @@ const BlogPost = ({ data }) => {
 }
 
 export const query = graphql`
-  query ($id: String) {
-    mdx(id: {eq: $id}, fileAbsolutePath: {regex: "/.*blog\/.*/"}) {
+  query ($slug: String) {
+    mdx(slug: {eq: $slug}, fileAbsolutePath: {regex: "/.*blog\/.*/"}) {
       frontmatter {
         title
         date(formatString: "MMMM D, YYYY")
@@ -36,6 +36,7 @@ export const query = graphql`
         }
       }
       body
+      slug
     }
   }
 `

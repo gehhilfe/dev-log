@@ -1,0 +1,67 @@
+---
+title: "Building Kubernetes Operator with operator-sdk"
+date: "2021-01-17"
+type: "blog"
+hero_image_alt: "Port of Jakarta with many containers."  
+hero_image_credit_link: "https://www.pexels.com/de-de/foto/meer-stadt-strasse-verkehr-2226458"  
+hero_image_credit_text: "Tom Fisk"  
+hero_image: "./pexels-tom-fisk-2226458.jpg"  
+---
+In a current project, I am faced with a common distributed system problem. I have a 
+set of thousands, long-running jobs, for which a single job doesn't need many resources. 
+Also, these jobs mostly wait for arriving data. But the processing load is too much for a
+single virtual machine. Therefore, horizontal scaling over multiple machine or containers 
+is needed and unfortunately the data needs to be processed in order, but the data can be 
+partitioned in independent order streams of data. Each of these independent data streams 
+I want to assign to a smaller set of processing nodes, but to ensure that ordering is 
+kept it is only allowed a stream is processed on a single node. 
+
+To solve these kinds of problems, a set of distributed algorithms is needed. 
+But luckily, most of these problems are already solved by Kubernetes. That is why investigate 
+solutions to create a custom Kubernetes operator, which can leverage these implemented distributed
+algorithms.
+
+## Kubernetes Operator
+
+A Kubernetes operators is software extending the Kubernetes control plane. Usually operators are using
+custom resources to describe and configure their components. Operators are following the Kubernetes 
+control loop, by comparing the current state to the desired state.
+
+> “An operator is a Kubernetes controller that understands 2 domains: Kubernetes and something else. By
+> combining knowledge of both domains, it can automate tasks that usually require a human operator that
+> understands both domains.”
+>
+> [Jimmy Zelinskie](https://github.com/kubeflow/tf-operator/issues/300#issuecomment-357527937)
+
+![Kubernetes Controller watching and comparing external events, current state and custom resource to reconcile to desired state.](./02_2_operator.png)
+_Source: [Operator-WhitePaper_v1-0.md](https://github.com/cncf/tag-app-delivery/blob/main/operator-wg/whitepaper/Operator-WhitePaper_v1-0.md)_
+
+## Operator-SDK
+
+Operator SDK provides tools and packages to easily build Kubernetes operators. It supports three ways of developing operators:
+
+- Ansible based
+- Helm based
+- Go based
+
+The ansible and helm approach is the recommended way of creating simple operators, but this way has some limits in functionality.
+Basically, it is limited to a one-to-one mapping between custom resource and other resources. For example, you can create a custom resource 
+which maps onto a helm chart. This simplifies the deployment and update of deployed helm applications.
+
+But this is not enough functionality to solve my scheduling of N task onto M execution units “pods”. Therefore, I choose the go operator way.
+
+## Go based operators
+
+First of all, you should have read the operator sdk [tutorial](https://sdk.operatorframework.io/docs/building-operators/golang/tutorial/), because it gives a broad overview of the project structure and teaches the basic operator operations and how to deploy an operator on a cluster.
+
+Some problems I encountered during using the operator-sdk:
+
+- You don't need to deploy the operator to your cluster!
+    - It is possible to execute it locally
+- Use finalizers to control what happens if a custom resource is deleted
+- Field selectors are limited to name and namespace
+    - Label selectors are more flexible
+
+Creating operators is complicated, specially when it is need to include state outside of Kubernetes. This is a problem 
+I still try to solve. What happens when an assigned task is successfully accepted by processing pod, but this pods never makes any process.
+My approach is to use health checks, that mark pods which are no processing unhealthy.

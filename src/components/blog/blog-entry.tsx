@@ -7,7 +7,7 @@ import { Card } from "react-bootstrap";
 const BlogEntry = ({content}) => {
     const image = getImage(content.frontmatter.hero_image)
     return (
-        <React.Fragment>
+        <div className="blog-entry">
             <h2>{content.frontmatter.title}</h2>
             <p className="text-muted">{content.frontmatter.date} by Gehhilfe</p>
             {
@@ -27,7 +27,7 @@ const BlogEntry = ({content}) => {
                     {content.body}
                 </MDXRenderer>
             </div>
-        </React.Fragment>
+        </div>
     )
 }
 
