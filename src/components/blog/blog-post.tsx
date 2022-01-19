@@ -14,6 +14,7 @@ const BlogPost = ({ data }) => {
     <Layout>
       <Helmet>
         <title>{content.frontmatter.title}</title>
+        <meta name="keywords" content={content.frontmatter.tags.join(', ')} />
       </Helmet>
       <BlogEntry content={content} />
     </Layout>
@@ -34,6 +35,7 @@ export const query = graphql`
             gatsbyImageData(width: 1000, placeholder: BLURRED, outputPixelDensities: 2)
           }
         }
+        tags
       }
       body
       slug

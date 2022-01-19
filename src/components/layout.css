@@ -22,7 +22,6 @@ a:hover {
 
 .nav * {
     text-decoration: none;
-    font-family: 'roboto';
 }
 
 .pullRight {
@@ -53,7 +52,7 @@ a:hover {
     border-left-width: 0.5em;
     border-left-style: solid;
     font-style: italic;
-    color: rgb(13%, 13%, 13%, 0.6);
+    color: rgb(13%, 13%, 13%, 1);
 }
 
 .blog-entry {

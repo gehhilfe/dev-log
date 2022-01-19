@@ -3,10 +3,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import Navigation from "./navigation";
 import "./layout.css"
 import Footer from "./footer";
+import { Helmet } from "react-helmet";
 
 const Layout = ({ children }) => {
     return (
         <Container className="fill">
+            <Helmet>
+                <html lang="en" />
+            </Helmet>
             <Row>
                 <Col><Navigation /></Col>
             </Row>
