@@ -69,6 +69,19 @@ module.exports = {
           },
         ],
       },
-    }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Gehhilfe DevLog`,
+        short_name: `Geh-DevLog`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#212529`,
+        display: `standalone`,
+        icon: "src/images/favicon-1024.png"
+      },
+    },
+    `gatsby-plugin-offline`
   ]
 }
