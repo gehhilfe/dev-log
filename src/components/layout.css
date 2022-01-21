@@ -121,3 +121,7 @@ a:hover {
 .mdx-content li  li {
     font-size: 0.9em;
 }
+
+deckgo-highlight-code {
+    font-size: 0.8em;
+}

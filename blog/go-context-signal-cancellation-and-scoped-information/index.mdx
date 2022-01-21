@@ -1,0 +1,111 @@
+---
+title: "Using Context to Signal Cancellation and Transfer Interfaces in GO"
+date: "2021-01-21"
+type: "blog"
+tags: ['go', 'golang', 'context', 'tutorial']  
+---
+
+The go programming concurrency context pattern allows to communicate 
+cancellation and information from top to bottom. Often a goroutine creates multiple 
+other goroutine. A http or RPC server will create for every request a separated 
+goroutine and this goroutine is provide as first parameter a 
+[Context](https://pkg.go.dev/context#Context). Should the client cancel the request,
+than provide context will also be canceled. This is result in that all from this request
+created goroutine will also be canceled.
+
+To achieve this functionality we are responsible to forward the context to all created 
+goroutines. Furthermore, we should derive a new context that may has a timeout and 
+can be canceled.
+
+```go
+func subroutine(ctx context.Context) int {
+    ctx, cancel := context.WithCancel(ctx)
+    defer cancel() // cancel derived context when we are done
+    ch := make(chan int) // create channel for return values
+    go producer(ctx, ch)
+
+    // we care only for this first value
+    return <- ch
+}
+```
+
+Lets have a short look at the producer function. It will generate a series of increasing 
+int values until the provided context is considered done, e.g. canceled or timed out.
+
+```go
+func producer(ctx context.Context, dst chan int) {
+    n := 1
+    for {
+        select {
+        case <-ctx.Done():
+            return // return when context is done, ensures goroutine is not leaking
+        case dst <- n:
+            n++
+        }
+    }
+}
+```
+
+Context can also be used to communicate information down chain. This sometimes used 
+to transfer a logger instance. To add information 
+`ctx = context.WithValue(ctx, key, value)` can be used and to retrieve information 
+`ctx.Value(key).(*Type)` should be used.
+
+To create a new context without any timeout or cancellation `context.Background()` 
+is there for our rescue.
+
+```go
+package main
+
+import (
+  "context"
+  "fmt"
+  "time"
+)
+
+func subroutine(ctx context.Context) int {
+  ctx, cancel := context.WithCancel(ctx)
+  defer cancel()       // cancel derived context when we are done
+  ch := make(chan int) // create channel for return values
+  go producer(ctx, ch)
+
+  // we care only for this first value
+  return <-ch
+}
+
+func producer(ctx context.Context, dst chan int) {
+  n := 1
+  for {
+    select {
+    case <-ctx.Done():
+      fmt.Println("cleanup")
+      return // return when context is done, ensures goroutine is not leaking
+    case dst <- n:
+      n++
+    }
+  }
+}
+
+func main() {
+  ctx, cancel := context.WithCancel(context.Background())
+  defer cancel()
+
+  r := subroutine(ctx)
+  fmt.Println("Result:", r)
+  time.Sleep(30 * time.Second)
+}
+
+```
+
+Example on [go playground](https://go.dev/play/p/4stWKS5ssvi)
+
+```bash
+Result: 1
+cleanup
+
+Program exited.
+```
+
+We can clearly see that the producer goroutine finished 
+when the context was canceled. As you can imagine this pattern
+can be applied to all sorts of long running goroutines.

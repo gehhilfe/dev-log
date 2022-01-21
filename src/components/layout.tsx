@@ -5,6 +5,9 @@ import "./layout.css"
 import Footer from "./footer";
 import { Helmet } from "react-helmet";
 
+import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader";
+deckDeckGoHighlightElement();
+
 const Layout = ({ children }) => {
     return (
         <Container className="fill">
