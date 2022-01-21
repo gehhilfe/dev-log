@@ -6,10 +6,11 @@ import { Card } from "react-bootstrap";
 
 const BlogEntry = ({content}) => {
     const image = getImage(content.frontmatter.hero_image)
+    content.frontmatter.tags.sort()
     return (
         <div className="blog-entry">
             <h2>{content.frontmatter.title}</h2>
-            <p className="text-muted">{content.frontmatter.date} by Gehhilfe</p>
+            <p className="text-muted small">{content.frontmatter.date} by Gehhilfe</p>
             {
                 image != null &&
                 <div>
@@ -27,6 +28,7 @@ const BlogEntry = ({content}) => {
                     {content.body}
                 </MDXRenderer>
             </div>
+            {content.frontmatter.tags && content.frontmatter.tags.length != 0 && <p className="text-muted small">Tags: {content.frontmatter.tags.join(', ')}</p> }
         </div>
     )
 }

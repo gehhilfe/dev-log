@@ -23,7 +23,7 @@ const BlogPost = ({ data }) => {
 
 export const query = graphql`
   query ($slug: String) {
-    mdx(slug: {eq: $slug}, fileAbsolutePath: {regex: "/.*blog\/.*/"}) {
+    mdx(slug: {eq: $slug}) {
       frontmatter {
         title
         date(formatString: "MMMM D, YYYY")
