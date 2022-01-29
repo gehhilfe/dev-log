@@ -22,7 +22,7 @@ const BlogEntry = ({ content }) => {
                 <Card.Title>
                     <h2>{content.frontmatter.title}</h2>
                 </Card.Title>
-                <Card.Text>
+                <Card.Text className="mdx-content">
                     <MDXRenderer>
                         {content.body}
                     </MDXRenderer>
