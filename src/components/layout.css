@@ -20,9 +20,10 @@ a:hover {
     color: #707070;
 }
 
-.bg-dark {
-    --bs-bg-opacity: 0.95;
+nav.bg-dark {
+    --bs-bg-opacity: 0.90;
     backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px 10px rgba(var(--bs-dark-rgb),var(--bs-bg-opacity));
 }
 
 .pullRight {
@@ -43,7 +44,7 @@ a:hover {
 }
 
 .content {
-    padding-top: 65px;
+    padding-top: 85px;
     padding-bottom: 1.5rem;
 }
 

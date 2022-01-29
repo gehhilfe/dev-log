@@ -4,32 +4,36 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 import { Card } from "react-bootstrap";
 
-const BlogEntry = ({content}) => {
+const BlogEntry = ({ content }) => {
     const image = getImage(content.frontmatter.hero_image)
     content.frontmatter.tags.sort()
     return (
-        <div className="blog-entry">
-            <h2>{content.frontmatter.title}</h2>
-            <p className="text-muted small">{content.frontmatter.date} by Gehhilfe</p>
+        <Card className="blog-entry" bg="dark">
             {
                 image != null &&
-                <div>
-                    <Card className="hero-card">
-                        <GatsbyImage image={image} alt={content.frontmatter.hero_image_alt} className="card-img-top" />
-                    </Card>
+                <React.Fragment>
+                    <GatsbyImage image={image} alt={content.frontmatter.hero_image_alt} className="card-img-top" />
                     <div className="attribution">
                         <Link to={content.frontmatter.hero_image_credit_link}>{content.frontmatter.hero_image_credit_text}</Link>
                     </div>
-                </div>
+                </React.Fragment>
             }
-            {image == null && <div className="dropdown-divider"></div>}
-            <div className="mdx-content">
-                <MDXRenderer>
-                    {content.body}
-                </MDXRenderer>
-            </div>
-            {content.frontmatter.tags && content.frontmatter.tags.length != 0 && <p className="text-muted small">Tags: {content.frontmatter.tags.join(', ')}</p> }
-        </div>
+            <Card.Body>
+                <Card.Title>
+                    <h2>{content.frontmatter.title}</h2>
+                </Card.Title>
+                <Card.Text>
+                    <MDXRenderer>
+                        {content.body}
+                    </MDXRenderer>
+                </Card.Text>
+                {content.frontmatter.tags && content.frontmatter.tags.length != 0 &&
+                    <Card.Text>
+                        <p className="text-muted small">Tags: {content.frontmatter.tags.join(', ')}</p>
+                    </Card.Text>
+                }
+            </Card.Body>
+        </Card>
     )
 }
 
