@@ -7,15 +7,12 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-fonts-with-attributes`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
           `source sans pro`
         ],
         display: 'swap',
-        attributes: {
-          rel: "stylesheet preload prefetch",
-        },
       }
     },
     "gatsby-plugin-image",
