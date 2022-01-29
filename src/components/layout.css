@@ -50,9 +50,6 @@ nav.bg-dark {
 
 .content blockquote {
     padding-left: 1em;
-    border-left: rgb(33, 33, 33, 0.5);
-    border-left-width: 0.5em;
-    border-left-style: solid;
     font-style: italic;
     color: rgba(255, 255, 255, 0.7);
 }
