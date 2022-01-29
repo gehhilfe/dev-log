@@ -1,8 +1,8 @@
 body {
     font-family: 'source sans pro';
     font-size: 1.2em;
-    background-color: rgb(255, 255, 255);
-    color: rgb(33, 33, 33);
+    background-color: rgb(13, 17, 23);
+    color: rgb(201, 209, 217);
 }
 
 html,
@@ -13,7 +13,7 @@ body,
 }
 
 a {
-    color: #414141;
+    color: rgb(201, 209, 217);
 }
 
 a:hover {
@@ -53,7 +53,7 @@ a:hover {
     border-left-width: 0.5em;
     border-left-style: solid;
     font-style: italic;
-    color: rgb(13%, 13%, 13%, 1);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .blog-entry {
