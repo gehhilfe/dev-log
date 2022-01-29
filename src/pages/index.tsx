@@ -11,7 +11,7 @@ const IndexPage = ({data}) => {
                 <title>Gehhilfe DevLog</title>
             </Helmet>
             {data.allMdx.nodes.map(it => (
-                <BlogEntry content={it} />
+                <BlogEntry content={it} key={it.slug} />
             ))}
         </Layout>
     )

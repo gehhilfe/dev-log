@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import { Link as a } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
@@ -14,7 +14,7 @@ const BlogEntry = ({ content }) => {
                 <React.Fragment>
                     <GatsbyImage image={image} alt={content.frontmatter.hero_image_alt} className="card-img-top" />
                     <div className="attribution">
-                        <Link to={content.frontmatter.hero_image_credit_link}>{content.frontmatter.hero_image_credit_text}</Link>
+                        <a href={content.frontmatter.hero_image_credit_link}>{content.frontmatter.hero_image_credit_text}</a>
                     </div>
                 </React.Fragment>
             }
@@ -22,15 +22,13 @@ const BlogEntry = ({ content }) => {
                 <Card.Title>
                     <h2>{content.frontmatter.title}</h2>
                 </Card.Title>
-                <Card.Text className="mdx-content">
+                <div className="mdx-content">
                     <MDXRenderer>
                         {content.body}
                     </MDXRenderer>
-                </Card.Text>
+                </div>
                 {content.frontmatter.tags && content.frontmatter.tags.length != 0 &&
-                    <Card.Text>
-                        <p className="text-muted small">Tags: {content.frontmatter.tags.join(', ')}</p>
-                    </Card.Text>
+                    <p className="text-muted small">Tags: {content.frontmatter.tags.join(', ')}</p>
                 }
             </Card.Body>
         </Card>
