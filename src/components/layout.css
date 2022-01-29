@@ -55,17 +55,21 @@ nav.bg-dark {
 }
 
 .blog-entry {
-    margin-bottom: 5em;
+    margin-bottom: 2.5rem;
+    box-shadow: 0px 20px 15px black;
 }
 
 .attribution a {
     text-decoration: none;
-    color: rgb(33, 33, 33, 0.5);
 }
 
 .attribution {
+    right: 0px;
+    text-shadow: 0px 0px 3px black;
+    position: absolute;
     font-size: 0.6em;
     text-align: right;
+    padding: 0.5em;
 }
 
 .hero-card .dark p.card-text a {
@@ -119,6 +123,10 @@ nav.bg-dark {
 
 .mdx-content li  li {
     font-size: 0.9em;
+}
+
+.tags a {
+    padding: 0.5em;
 }
 
 deckgo-highlight-code {

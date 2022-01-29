@@ -8,7 +8,9 @@ exports.onPostBuild = ({ reporter }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogPostTemplate = path.resolve(`src/components/blog/blog-post.tsx`)
-  const result = await graphql(`
+  const tagPageTemplate = path.resolve('src/components/blog/tag-page.tsx')
+
+  const blogEntries = await graphql(`
     query {
         allMdx(filter: {frontmatter: {type: {eq: "blog"}}}) {
           nodes {
@@ -21,7 +23,29 @@ exports.createPages = async ({ graphql, actions }) => {
       }      
   `)
 
-  result.data.allMdx.nodes.forEach(edge => {
+  const tags = await graphql(`
+  {
+    allMdx {
+      nodes {
+        frontmatter {
+          tags
+        }
+      }
+    }
+  }  
+  `)
+
+  tags.data.allMdx.nodes.forEach(it => it.frontmatter.tags && it.frontmatter.tags.forEach(tag => {
+    createPage({
+      path: `blog/tag/${tag}`,
+      component: tagPageTemplate,
+      context: {
+        tag: tag,
+      }
+    })
+  }))
+
+  blogEntries.data.allMdx.nodes.forEach(edge => {
     createPage({
       path: `blog/${edge.slug}`,
       component: blogPostTemplate,

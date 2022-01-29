@@ -1,4 +1,4 @@
-import { Link as a } from "gatsby";
+import { Link as a, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
@@ -28,7 +28,7 @@ const BlogEntry = ({ content }) => {
                     </MDXRenderer>
                 </div>
                 {content.frontmatter.tags && content.frontmatter.tags.length != 0 &&
-                    <p className="text-muted small">Tags: {content.frontmatter.tags.join(', ')}</p>
+                    <p className="text-muted small tags">Tags: {content.frontmatter.tags.map(it => (<Link to={`/blog/tag/${it}`}>{it}</Link>))}</p>
                 }
             </Card.Body>
         </Card>
