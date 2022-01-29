@@ -14,7 +14,7 @@ const ImpressumPage = () => {
             </p>
             <p>
                 E-Mail: <Obfuscate
-                    email="gehhife@gmail.com"
+                    email="burkert.tim@gmail.com"
                     headers={{
                         subject: 'Impressum gehhilfe.dev',
                     }}
