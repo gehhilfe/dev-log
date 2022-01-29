@@ -66,8 +66,8 @@ module.exports = {
         name: `Gehhilfe DevLog`,
         short_name: `Geh-DevLog`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#212529`,
+        background_color: `#0d1117`,
+        theme_color: `#1f2327`,
         display: `standalone`,
         icon: "src/images/favicon-1024.png"
       },
