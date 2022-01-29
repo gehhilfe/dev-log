@@ -14,7 +14,7 @@ const Footer = () => {
                 <Col md>
                     <div className="footer">
                         <Stack direction="horizontal" gap={5}>
-                            <Link to="/impress">Impress</Link>
+                            <Link to="/imprint">Imprint</Link>
                             <Link to="/privacy">Privacy</Link>
                         </Stack>
                     </div>
