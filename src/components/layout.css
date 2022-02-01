@@ -126,7 +126,12 @@ nav.bg-dark {
 }
 
 .tags a {
-    padding: 0.5em;
+    background: rgba(255,255,255,0.1);
+    border-radius: 100px;
+    padding: 0.4em;
+    margin: 0.2em;
+    font-size: 0.73em;
+    text-decoration: none;
 }
 
 deckgo-highlight-code {

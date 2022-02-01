@@ -28,7 +28,7 @@ const BlogEntry = ({ content }) => {
                     </MDXRenderer>
                 </div>
                 {content.frontmatter.tags && content.frontmatter.tags.length != 0 &&
-                    <p className="text-muted small tags">Tags: {content.frontmatter.tags.map(it => (<Link to={`/blog/tag/${it}`}>{it}</Link>))}</p>
+                    <p className="text-muted small tags">{content.frontmatter.tags.map(it => (<Link to={`/blog/tag/${it}`}> {it} </Link>))}</p>
                 }
             </Card.Body>
         </Card>

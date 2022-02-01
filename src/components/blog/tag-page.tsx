@@ -15,7 +15,7 @@ const TagPage = ({ data }) => {
 
 export const query = graphql`
   query ($tag: String) {
-    allMdx(filter: {frontmatter: {tags: {eq: $tag}}}) {
+    allMdx(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {tags: {eq: $tag}}}) {
           nodes {
             frontmatter {
                 title
