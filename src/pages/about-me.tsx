@@ -19,8 +19,8 @@ const AboutMePage = ({ data }) => {
                 <StaticImage className="card-img-top" src="../images/about-me.png" alt="Profile picture" placeholder="blurred" />
                 <Card.Body>
                     <Card.Title>Tim Burkert</Card.Title>
-                    <Card.Subtitle className="text-muted">Software Magician and Distributed Systems Nerd</Card.Subtitle>
-                    <Card.Text className="float-end">
+                    <Card.Subtitle className="text-muted">Software Magician &amp; Nerd</Card.Subtitle>
+                    <Card.Text className="float-end p-1">
                         <Stack direction="horizontal" gap={3} className="social">
                             <a href="https://github.com/Gehhilfe"><Github /></a>
                             <a href="https://twitter.com/Gehhilfe"><Twitter /></a>
