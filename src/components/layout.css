@@ -135,5 +135,8 @@ nav.bg-dark {
 }
 
 deckgo-highlight-code {
-    font-size: 0.8em;
+    --deckgo-highlight-code-font-size: 0.8em;
+    --deckgo-highlight-code-background: rgba(13, 13, 30, 0.1);
+    --deckgo-highlight-code-border-radius: 5px;
+    --deckgo-highlight-code-zoom: 1;
 }

@@ -13,6 +13,7 @@ const AboutMePage = ({ data }) => {
             <Helmet>
                 <title>Gehhilfe DevLog About Me</title>
             </Helmet>
+            
             <h1>About Me</h1>
             <Card className="about-me-card" bg="dark">
                 <StaticImage className="card-img-top" src="../images/about-me.png" alt="Profile picture" placeholder="blurred" />
