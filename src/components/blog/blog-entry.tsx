@@ -2,7 +2,8 @@ import { Link as a, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
+import LikeButton from "../like-button";
 
 const BlogEntry = ({ content }) => {
     const image = getImage(content.frontmatter.hero_image)
@@ -27,9 +28,14 @@ const BlogEntry = ({ content }) => {
                         {content.body}
                     </MDXRenderer>
                 </div>
-                {content.frontmatter.tags && content.frontmatter.tags.length != 0 &&
-                    <p className="text-muted small tags">{content.frontmatter.tags.map(it => (<Link to={`/blog/tag/${it}`}> {it} </Link>))}</p>
-                }
+                <Container>
+                    <Row className="align-items-center">
+                        <Col className="text-muted small tags">{content.frontmatter.tags && content.frontmatter.tags.length != 0 &&
+                            content.frontmatter.tags.map(it => (<Link to={`/blog/tag/${it}`} key={it}> {it} </Link>))
+                        }</Col>
+                        <Col md="auto"><LikeButton slug={content.slug} /></Col>
+                    </Row>
+                </Container>
             </Card.Body>
         </Card>
     )

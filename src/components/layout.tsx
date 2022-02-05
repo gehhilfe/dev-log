@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Navigation from "./navigation";
 import "./layout.css"
+import './like-button.css';
 import Footer from "./footer";
 import { Helmet } from "react-helmet";
 

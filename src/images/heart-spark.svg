@@ -1,0 +1,15 @@
+<svg width="424" height="424" viewBox="0 0 424 424" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_3_26" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="424" height="424">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M212 424C329.084 424 424 329.084 424 212C424 94.9156 329.084 0 212 0C94.9156 0 0 94.9156 0 212C0 329.084 94.9156 424 212 424ZM212 374C301.47 374 374 301.47 374 212C374 122.53 301.47 50 212 50C122.53 50 50 122.53 50 212C50 301.47 122.53 374 212 374Z" fill="black"/>
+</mask>
+<g mask="url(#mask0_3_26)">
+<line x1="-23" y1="212" x2="460" y2="212" stroke="black" stroke-width="2"/>
+<line x1="213" y1="-37" x2="213" y2="486" stroke="black" stroke-width="2"/>
+<line x1="12.7071" y1="12.2929" x2="421.826" y2="421.412" stroke="black" stroke-width="2"/>
+<line x1="8.29289" y1="416.412" x2="417.412" y2="7.29291" stroke="black" stroke-width="2"/>
+<line x1="-54.3827" y1="322.49" x2="480.157" y2="101.076" stroke="black" stroke-width="2"/>
+<line x1="101.639" y1="479.594" x2="323.053" y2="-54.9458" stroke="black" stroke-width="2"/>
+<line x1="323.49" y1="478.923" x2="102.076" y2="-55.6173" stroke="black" stroke-width="2"/>
+<path d="M480.54 321.99L-54 100.576L-54.7654 102.424L479.775 323.838L480.54 321.99Z" fill="black"/>
+</g>
+</svg>

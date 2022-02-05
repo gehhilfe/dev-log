@@ -1,0 +1,37 @@
+.like-button-container {
+    display: inline-block;
+    position: relative;
+    float: right;
+    height: 50px;
+    width: 50px;
+}
+
+.like-button-container img {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.like-button-heart {
+    width: 40%;
+    filter: invert(90%) sepia(21%) saturate(51%) hue-rotate(168deg) brightness(104%) contrast(98%);
+}
+
+.like-button-spark {
+    width: 80%;
+    filter: invert(90%) sepia(21%) saturate(51%) hue-rotate(168deg) brightness(104%) contrast(98%);
+}
+
+.like-button-counter {
+    text-align: center;
+    position: absolute;
+    margin: auto;
+    font-size: 0.8em;
+    left: 0;
+    top: 30px;
+    bottom: 0;
+    right: 0;
+}

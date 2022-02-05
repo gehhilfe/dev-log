@@ -7,15 +7,20 @@ import { Github, Linkedin, Twitter } from "react-bootstrap-icons";
 import Layout from "../components/layout";
 import { Helmet } from "react-helmet"
 
+import { useSpring, animated } from 'react-spring'
+
 const AboutMePage = ({ data }) => {
+
+    const props = useSpring({ to: { opacity: 1, transform: "translateX(0px)" }, from: { opacity: 0, transform: "translateX(20px)" } })
+    const AnimatedCard = animated(Card)
     return (
         <Layout>
             <Helmet>
                 <title>Gehhilfe DevLog About Me</title>
             </Helmet>
-            
+
             <h1>About Me</h1>
-            <Card className="about-me-card" bg="dark">
+            <AnimatedCard style={props} className="about-me-card" bg="dark">
                 <StaticImage className="card-img-top" src="../images/about-me.png" alt="Profile picture" placeholder="blurred" />
                 <Card.Body>
                     <Card.Title>Tim Burkert</Card.Title>
@@ -28,11 +33,12 @@ const AboutMePage = ({ data }) => {
                         </Stack>
                     </Card.Text>
                 </Card.Body>
-            </Card>
+            </AnimatedCard>
+
             <div className="mdx-content">
-            <MDXRenderer>
-                {data.mdx.body}
-            </MDXRenderer>
+                <MDXRenderer>
+                    {data.mdx.body}
+                </MDXRenderer>
             </div>
         </Layout>
     )
