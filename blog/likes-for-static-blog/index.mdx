@@ -1,0 +1,78 @@
+---
+title: "Adding a Like Button to Gatsby Blog"
+date: "2021-02-08"
+type: "blog"
+hero_image_alt: "Port of Jakarta with many containers."  
+hero_image_credit_link: "https://unsplash.com/photos/aZg78WkSDZk"  
+hero_image_credit_text: "Daniela Holzer"  
+hero_image: "./daniela-holzer-aZg78WkSDZk-unsplash.jpg"
+tags: ['react', 'blog', 'gatsbyjs', 'serverless']  
+---
+
+Adding dynamic content, like a “Like Button” including a counter, to a static page seems 
+to be contradictory. The current count, aka state of the dynamic content, can't be generated
+statically. Therefore, an external state storage is need. To connect the static pages with our
+state store a simple Web API is need. To keep maintenance as low as possible, I decided to use
+only serverless technology. I don't want to maintain database servers or complex deployments.
+For my small blog is this even also coast effective solution. My serverless [API project](https://github.com/Gehhilfe/dev-log-api) 
+on GitHub.
+
+### Like State Storage 
+
+To store the like count of every blog entry, I decided to use DynamoDB from AWS. This provides
+a cheap and serverless way to no relation data access by a primary key. Furthermore, DynamoDB
+even supports atomic operations! This ensures super accurate like count values. 😁
+
+I configured a single table with a string primary key called `id` without a sort key and provisioned
+a single read and write capacity unit, because I don't expect any high traffic and this limits also
+the maximal cost.
+
+
+**Table Configuration**
+
+```typescript
+export default {
+  LikeTable: {
+    Type: 'AWS::DynamoDB::Table',
+    DeletionPolicy: 'Retain',
+    Properties: {
+      TableName: '${self:provider.environment.LIKE_TABLE}',
+      AttributeDefinitions: [ { AttributeName: 'id', AttributeType: 'S' } ],
+      KeySchema: [ { AttributeName: 'id', KeyType: 'HASH' } ],
+      ProvisionedThroughput: {
+        ReadCapacityUnits: '${self:custom.table_throughput}',
+        WriteCapacityUnits: '${self:custom.table_throughput}'
+      }
+    }
+  }
+}
+```
+
+### Accessing and Modifying Likes
+
+Creating a Web API with AWS Lambda and [serverless framework](https://www.serverless.com/) is quite straightforward. As
+a starting point, I used the serverless [typescript plugin](https://www.serverless.com/plugins/serverless-plugin-typescript) 
+and followed the short description to generate a new project.
+
+I added two handler functions:
+
+- [getLike](https://github.com/Gehhilfe/dev-log-api/blob/fdc0b9d0d0bc4218054a6aef52c98a8aca1631ae/src/functions/get-like/handler.ts) to retrieve the like count
+  - Expects `id` as url parameter
+- [postLike](https://github.com/Gehhilfe/dev-log-api/blob/fdc0b9d0d0bc4218054a6aef52c98a8aca1631ae/src/functions/like/handler.ts) to increment the like count
+  - Expects a json body with an `id` and `clientId` property
+
+The clientId is used to limit the likes of a single clientId to a maximum of 10 likes. You can try this by pressing the like button at the 
+end of this article.
+
+### Creating an React Like Button Component
+
+To simplify development of a graphical React component, I extracted [helping functions](https://github.com/Gehhilfe/dev-log/blob/31bfc0a1cbdc299463e5c7b0d31b6f8c33b59eea/src/services/like.tsx) to interact with the API. The `LikeButton`
+component as functional component that uses `useState` to store the like count on client side and further uses `useEffect` with
+an empty dependency list to load the current like count. I designed the graphics with [Figma](https://www.figma.com/file/UAoI5lRqwL3t1xNKnVV54J/Heart?node-id=0%3A1)
+and animated the SVG's with [react-spring](https://react-spring.io/basics).
+
+You can check out my like [button component](https://github.com/Gehhilfe/dev-log/blob/31bfc0a1cbdc299463e5c7b0d31b6f8c33b59eea/src/components/like-button.tsx) on GitHub.
+
+
+I hope this short description of my journey extending a static generated blog with a dynamic like button helps to include
+dynamic content in your static projects. And now start liking my articles if they helped you.

@@ -17,12 +17,12 @@
 
 .like-button-heart {
     width: 40%;
-    filter: invert(90%) sepia(21%) saturate(51%) hue-rotate(168deg) brightness(104%) contrast(98%);
+    filter: invert(30%) sepia(27%) saturate(5749%) hue-rotate(308deg) brightness(89%) contrast(87%);
 }
 
 .like-button-spark {
     width: 80%;
-    filter: invert(90%) sepia(21%) saturate(51%) hue-rotate(168deg) brightness(104%) contrast(98%);
+    filter: invert(30%) sepia(27%) saturate(5749%) hue-rotate(308deg) brightness(89%) contrast(87%);
 }
 
 .like-button-counter {
@@ -34,4 +34,5 @@
     top: 30px;
     bottom: 0;
     right: 0;
+    color: #d63384;
 }
