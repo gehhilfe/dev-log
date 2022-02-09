@@ -3,13 +3,13 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M212 424C329.084 424 424 329.084 424 212C424 94.9156 329.084 0 212 0C94.9156 0 0 94.9156 0 212C0 329.084 94.9156 424 212 424ZM212 374C301.47 374 374 301.47 374 212C374 122.53 301.47 50 212 50C122.53 50 50 122.53 50 212C50 301.47 122.53 374 212 374Z" fill="black"/>
 </mask>
 <g mask="url(#mask0_3_26)">
-<line x1="-23" y1="212" x2="460" y2="212" stroke="black" stroke-width="2"/>
-<line x1="213" y1="-37" x2="213" y2="486" stroke="black" stroke-width="2"/>
-<line x1="12.7071" y1="12.2929" x2="421.826" y2="421.412" stroke="black" stroke-width="2"/>
-<line x1="8.29289" y1="416.412" x2="417.412" y2="7.29291" stroke="black" stroke-width="2"/>
-<line x1="-54.3827" y1="322.49" x2="480.157" y2="101.076" stroke="black" stroke-width="2"/>
-<line x1="101.639" y1="479.594" x2="323.053" y2="-54.9458" stroke="black" stroke-width="2"/>
-<line x1="323.49" y1="478.923" x2="102.076" y2="-55.6173" stroke="black" stroke-width="2"/>
-<path d="M480.54 321.99L-54 100.576L-54.7654 102.424L479.775 323.838L480.54 321.99Z" fill="black"/>
+<line x1="-23" y1="210" x2="460" y2="210" stroke="black" stroke-width="6"/>
+<line x1="215" y1="-37" x2="215" y2="486" stroke="black" stroke-width="6"/>
+<line x1="14.1213" y1="10.8787" x2="423.241" y2="419.998" stroke="black" stroke-width="6"/>
+<line x1="6.87868" y1="414.998" x2="415.998" y2="5.8787" stroke="black" stroke-width="6"/>
+<line x1="-55.1481" y1="320.642" x2="479.392" y2="99.2284" stroke="black" stroke-width="6"/>
+<line x1="99.7915" y1="478.829" x2="321.205" y2="-55.7112" stroke="black" stroke-width="6"/>
+<line x1="321.642" y1="479.688" x2="100.228" y2="-54.8519" stroke="black" stroke-width="6"/>
+<path d="M481.305 320.142L-53.2346 98.7284L-55.5307 104.272L479.009 325.685L481.305 320.142Z" fill="black"/>
 </g>
 </svg>
