@@ -20,7 +20,7 @@ on GitHub.
 ### Like State Storage 
 
 To store the like count of every blog entry, I decided to use DynamoDB from AWS. This provides
-a cheap and serverless way to no relation data access by a primary key. Furthermore, DynamoDB
+a cheap and serverless way to access data by a primary key. Furthermore, DynamoDB
 even supports atomic operations! This ensures super accurate like count values. 😁
 
 I configured a single table with a string primary key called `id` without a sort key and provisioned
