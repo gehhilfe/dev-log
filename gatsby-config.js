@@ -6,15 +6,6 @@ module.exports = {
     siteUrl: siteAddress.toString(),
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `source sans pro`
-        ],
-        display: 'swap',
-      }
-    },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     {
@@ -24,7 +15,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1200,
+              maxWidth: 600,
             },
           },
           {

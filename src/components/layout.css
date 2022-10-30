@@ -1,6 +1,6 @@
 body {
-    font-family: 'source sans pro';
-    font-size: 1.2em;
+    font-family: 'Open Sans';
+    font-size: 16px;
     background-color: #0d1117;
     color: rgb(201, 209, 217);
 }
@@ -9,7 +9,7 @@ html,
 body,
 #___gatsby,
 #gatsby-focus-wrapper {
-  height: 100%;
+    height: 100%;
 }
 
 a {
@@ -23,7 +23,7 @@ a:hover {
 nav.bg-dark {
     --bs-bg-opacity: 0.90;
     backdrop-filter: blur(5px);
-    box-shadow: 0 0 10px 10px rgba(var(--bs-dark-rgb),var(--bs-bg-opacity));
+    box-shadow: 0 0 10px 10px rgba(var(--bs-dark-rgb), var(--bs-bg-opacity));
 }
 
 .pullRight {
@@ -38,7 +38,7 @@ nav.bg-dark {
     padding: 0px;
 }
 
-.fill { 
+.fill {
     min-height: 100%;
     height: 100%;
 }
@@ -85,12 +85,14 @@ nav.bg-dark {
 }
 
 @media (min-width: 1200px) {
-    .container{
+    .container {
         max-width: 970px;
     }
 }
 
-.footer-left, .footer, .nav {
+.footer-left,
+.footer,
+.nav {
     padding: 1.5rem;
 }
 
@@ -103,9 +105,12 @@ nav.bg-dark {
         float: right !important;
         padding: 0;
     }
-    .footer, .nav  {
+
+    .footer,
+    .nav {
         padding: 0;
     }
+
     .about-me-card {
         float: right !important;
         width: 15em;
@@ -117,20 +122,20 @@ nav.bg-dark {
     list-style: none;
 }
 
-.mdx-content li:before { 
-    content:''; 
-    background-image:url('../images/code-solid.svg');
+.mdx-content li:before {
+    content: '';
+    background-image: url('../images/code-solid.svg');
     background-repeat: no-repeat;
     background-position: center;
-    padding-left: 2em; 
+    padding-left: 2em;
 }
 
-.mdx-content li  li {
+.mdx-content li li {
     font-size: 0.9em;
 }
 
 .tags a {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 100px;
     padding: 0.4em;
     margin: 0.2em;
@@ -143,4 +148,8 @@ deckgo-highlight-code {
     --deckgo-highlight-code-background: rgba(13, 13, 30, 0.1);
     --deckgo-highlight-code-border-radius: 5px;
     --deckgo-highlight-code-zoom: 1;
+}
+
+strong {
+    font-weight: 800;
 }
